@@ -1,0 +1,50 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Material Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Material Table</h1>
+        <a href="/materialcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Material ID</th>
+                    <th>Material Name</th>
+                    <th>Material Type</th>
+                    <th>Quantity</th>
+                    <th>Supplier ID</th>
+                    <th>Material Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for material in materials %}
+                <tr>
+                    <td>{{ material.material_id }}</td>
+                    <td>{{ material.material_name }}</td>
+                    <td>{{ material.material_type }}</td>
+                    <td>{{ material.quantity }}</td>
+                    <td>{{ material.sup_id }}</td>
+                    <td>{{ material.materialprice }}</td>
+                    <td>
+                        <a href="/materialupdate/{{material.material_id}}/">Edit</a>
+                        <a href="/materialdelete/{{material.material_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

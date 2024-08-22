@@ -1,0 +1,39 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Service Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Service Table</h2>
+        <a href="/servicecreate/">Add </a>
+        <table border="1">
+            <tr>
+                <th>Service ID</th>
+                <th>Service Name</th>
+                <th>Service Description</th>
+                <th>Actions</th>
+            </tr>
+            {% for service in services %}
+            <tr>
+                <td>{{ service.service_id }}</td>
+                <td>{{ service.service_name }}</td>
+                <td>{{ service.service_desc }}</td>
+                <td>
+                    <a href="/serviceupdate/{{service.service_id}}/">Edit</a>
+                    <a href="/servicedelete/{{service.service_id}}/">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Warehouse</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles2.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Delete </h1>
+        <p>Are you sure you want to delete the warehouse "{{ warehouse.warehouse_id }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="submit" value="Delete" href="/warehouselist/" onclick="remove()">
+        </form>
+        <a href="/warehouselist/">Back</a>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

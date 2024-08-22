@@ -1,0 +1,26 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Invoice</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+
+    <center>
+        <h1>Delete</h1>
+        <h1>Are you sure you want to delete the invoice with ID {{ invoice.invoice_id }}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/invoicelist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/invoicelist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

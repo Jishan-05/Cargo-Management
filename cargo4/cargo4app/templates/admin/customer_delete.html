@@ -1,0 +1,25 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Customer</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Are you sure you want to delete Customer ID {{ customer.cust_id }}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/customerlist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/customerlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+ {% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create Order</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/create.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Add</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="order_id">Order ID:</label>
+            <input type="number" name="order_id" required><br>
+
+            <label for="order_date">Order Date:</label>
+            <input type="date" id="order_date" name="order_date" required><br><br>
+
+            <label for="pay_method">Payment Method:</label>
+            <input type="text" id="pay_method" name="pay_method" required><br><br>
+
+            <label for="cust_id">Customer ID:</label>
+            <input type="text" id="cust_id" name="cust_id" required><br><br>
+
+            <label for="product_id">Product ID:</label>
+            <input type="text" id="product_id" name="product_id" required><br><br>
+
+            <label for="service_id">Service ID:</label>
+            <input type="text" id="service_id" name="service_id" required><br><br>
+
+            <button type="submit" href="/orderlist/" onclick="add()">Create </button>
+        </form>
+        <a href="/orderlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

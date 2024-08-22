@@ -1,0 +1,42 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Customer</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="cust_id">Customer ID:</label>
+            <input type="number" id="cust_id" name="cust_id" required><br>
+            <label for="cust_firstname">First Name:</label>
+            <input type="text" id="cust_firstname" name="cust_firstname" required><br>
+            <label for="customer_lastname">Last Name:</label>
+            <input type="text" id="customer_lastname" name="customer_lastname" required><br>
+            <label for="cust_password">Password:</label>
+            <input type="text" id="cust_password" name="cust_password" required><br>
+            <label for="cust_gender">Gender:</label>
+            <input type="text" id="cust_gender" name="cust_gender" required><br>
+            <label for="cust_contact_no_field">Contact No:</label>
+            <input type="number" id="cust_contact_no_field" name="cust_contact_no_field" required><br>
+            <label for="cust_email">Email:</label>
+            <input type="email" id="cust_email" name="cust_email" required><br>
+            <label for="cust_address">Address:</label>
+            <input type="text" id="cust_address" name="cust_address" required><br>
+            <button type="submit" href="/customerlist/" onclick="update()">Update</button>
+        </form>
+        <a href="/customerlist/">Back </a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Feedback</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css"> \
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Are you sure you want to delete the feedback "{{ feedback.fb_id }}"?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/fblist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/feedbacklist/"> Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

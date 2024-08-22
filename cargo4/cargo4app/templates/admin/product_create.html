@@ -1,0 +1,25 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Product</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/create.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Add</h1>
+        <form method="post">
+            {% csrf_token %} Product ID: <input type="number" name="product_id"><br> Product Name: <input type="text" name="product_name"><br> Weight: <input type="text" name="weight"><br> Product Price: <input type="number" name="productprice"><br>
+            <button type="submit" href="/productlist/" onclick="add()">Create</button>
+        </form>
+        <a href="/productlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

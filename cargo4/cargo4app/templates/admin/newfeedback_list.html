@@ -1,0 +1,44 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Active FeedBack Table</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>New Feedbacks Table</h2>
+        <a href="/fbcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Feedback_Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Feedback</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for feedback in feedbacks %}
+                <tr>
+                    <td>{{ feedback.fb_id}}</td>
+                    <td>{{ feedback.name }}</td>
+                    <td>{{ feedback.email }}</td>
+                    <td>{{ feedback.custfeedback }}</td>
+                    <td>
+                        <a href="/newfbupdate/{{ feedback.fb_id }}/">Edit</a>
+                        <a href="/newfbdelete/{{ feedback.fb_id }}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <ul>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

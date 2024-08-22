@@ -1,0 +1,28 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Supplier</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Edit</h2>
+        <form method="post">
+            {% csrf_token %} Supplier Name: <input type="text" name="sup_name" required><br><br> Contact Number: <input type="text" name="contact_no" required><br><br> Email: <input type="email" name="sup_email" maxlength="30" required><br><br> Address:
+            <input type="text" name="sup_address" maxlength="100" required><br><br>
+            <button type="submit" href="/supplierlist/" onclick="update()">Create</button>
+        </form>
+        <br>
+        <a href="/supplierlist/">Back</a>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

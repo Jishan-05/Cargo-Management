@@ -1,0 +1,26 @@
+<!-- templates/myapp/login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="admin_name">Username:</label>
+        <input type="text" id="admin_name" name="admin_name" required><br>
+        <label for="admin_pass">Password:</label>
+        <input type="password" id="admin_pass" name="admin_pass" required><br>
+        <button type="submit">Login</button>
+    </form>
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

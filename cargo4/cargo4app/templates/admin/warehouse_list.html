@@ -1,0 +1,45 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Warehouse Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Warehouse Table</h1>
+        <a href="/warehousecreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Warehouse ID</th>
+                    <th>Warehouse Address</th>
+                    <th>Capacity</th>
+                    <th>Employee ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for warehouse in warehouses %}
+                <tr>
+                    <td>{{ warehouse.warehouse_id }}</td>
+                    <td>{{ warehouse.warehouse_address }}</td>
+                    <td>{{ warehouse.capacity }}</td>
+                    <td>{{ warehouse.emp_id }}</td>
+                    <td>
+                        <a href="/warehouseupdate/{{warehouse.warehouse_id}}/">Edit</a>
+                        <a href="/warehousedelete/{{warehouse.warehouse_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

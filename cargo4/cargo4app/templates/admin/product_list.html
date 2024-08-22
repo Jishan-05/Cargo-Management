@@ -1,0 +1,45 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Product Table</h1>
+        <a href="/productcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Weight</th>
+                    <th>Product Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>{{ product.product_id }}</td>
+                    <td>{{ product.product_name }}</td>
+                    <td>{{ product.weight }}</td>
+                    <td>{{ product.productprice }}</td>
+                    <td>
+                        <a href="/productupdate/{{product.product_id}}/">Edit</a>
+                        <a href="/productdelete/{{product.product_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

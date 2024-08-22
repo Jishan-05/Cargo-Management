@@ -1,0 +1,37 @@
+ {% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Feedback</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="f_id">ID:</label>
+            <input type="number" name="f_id" required><br>
+
+            <label for="feedback">Feedback:</label>
+            <input type="text" name="feedback" required><br>
+
+            <label for="f_date">Date:</label>
+            <input type="date" name="f_date" required><br>
+
+            <label for="cust_id">Customer ID:</label>
+            <input type="number" name="cust_id" required><br>
+
+            <button type="submit" href="/feedbacklist/" onclick="update()">Update</button>
+        </form>
+        <a href="/feedbacklist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Product</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Delete </h1>
+        <p>Are you sure you want to delete product {{ product.product_id }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/productlist/" onclick="remove()">Delete</button>
+        </form>
+        <a href="/productlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

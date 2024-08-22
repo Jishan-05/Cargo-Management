@@ -1,0 +1,52 @@
+{% extends 'admin/dsbrd.html' %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Update Payment</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="pay_id">Payment ID</label>
+            <input type="text" id="pay_id" name="pay_id" required><br><br>
+
+            <label for="pay_date">Payment Date:</label>
+            <input type="date" id="pay_date" name="pay_date" required><br><br>
+
+            <label for="price_id">Price ID:</label>
+            <input type="text" id="price_id" name="price_id" required><br><br>
+
+            <label for="order_id">Order ID:</label>
+            <input type="text" id="order_id" name="order_id" required><br><br>
+
+            <label for="cust_id">Customer ID:</label>
+            <input type="text" id="cust_id" name="cust_id" required><br><br>
+
+            <label for="pay_method">Payment Method:</label>
+            <input type="text" id="pay_method" name="pay_method" required><br><br>
+
+            <label for="pay_amount">Payment Amount:</label>
+            <input type="text" id="pay_amount" name="pay_amount" required><br><br>
+
+            <label for="pay_status">Payment Status:</label>
+            <input type="text" id="pay_status" name="pay_status" required><br><br>
+
+            <button type="submit" href="/paymentlist/" onclick="update()">Update</button>
+        </form>
+        <a href="/paymentlist/">Back </a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

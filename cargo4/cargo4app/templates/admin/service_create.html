@@ -1,0 +1,27 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Service</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/create.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Add</h2>
+        <form method="post">
+            {% csrf_token %} Service ID: <input type="number" name="service_id" required><br><br> Service Name: <input type="text" name="service_name" maxlength="20" required><br><br> Service Description: <input type="text" name="service_desc" maxlength="100"
+                required><br><br>
+            <button type="submit" href="/servicelist/" onclick="add()">Create</button>
+        </form>
+        <br>
+        <a href="/servicelist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

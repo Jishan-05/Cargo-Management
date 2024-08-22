@@ -1,0 +1,45 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inventory Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Inventory Table</h1>
+        <a href="/inventorycreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Inventory ID</th>
+                    <th>Product ID</th>
+                    <th>Arrival Date</th>
+                    <th>Departure Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inventory in inventories %}
+                <tr>
+                    <td>{{ inventory.inventory_id }}</td>
+                    <td>{{ inventory.product_id }}</td>
+                    <td>{{ inventory.arrival_date }}</td>
+                    <td>{{ inventory.departure_date }}</td>
+                    <td>
+                        <a href="/inventoryupdate/{{inventory.inventory_id}}/">Edit</a>
+                        <a href="/inventorydelete/{{inventory.inventory_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

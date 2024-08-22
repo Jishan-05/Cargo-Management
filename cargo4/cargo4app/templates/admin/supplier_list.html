@@ -1,0 +1,44 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Supplier Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Supplier Table</h2>
+        <a href="/suppliercreate/">Add</a>
+        <table border="1">
+            <tr>
+                <th>Supplier ID</th>
+                <th>Supplier Name</th>
+                <th>Contact Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+            {% for supplier in suppliers %}
+            <tr>
+                <td>{{ supplier.sup_id }}</td>
+                <td>{{ supplier.sup_name }}</td>
+                <td>{{ supplier.contact_no }}</td>
+                <td>{{ supplier.sup_email }}</td>
+                <td>{{ supplier.sup_address }}</td>
+                <td>
+                    <a href="/supplierupdate/{{supplier.sup_id}}/">Edit</a>
+                    <a href="/supplierdelete/{{supplier.sup_id}}/">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Customer Table</h1>
+        <a href="/createcustomer/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Password</th>
+                    <th>Gender</th>
+                    <th>Contact No</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for customer in customers %}
+                <tr>
+                    <td>{{ customer.cust_id }}</td>
+                    <td>{{ customer.cust_firstname }}</td>
+                    <td>{{ customer.customer_lastname }}</td>
+                    <td>{{ customer.cust_password }}</td>
+                    <td>{{ customer.cust_gender }}</td>
+                    <td>{{ customer.cust_contact_no_field }}</td>
+                    <td>{{ customer.cust_email }}</td>
+                    <td>{{ customer.cust_address }}</td>
+                    <td>
+                        <a href="/updatecustomer/{{customer.cust_id}}">Edit</a>
+                        <a href="/deletecustomer/{{customer.cust_id}}">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

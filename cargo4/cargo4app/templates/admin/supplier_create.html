@@ -1,0 +1,27 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create Supplier</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/create.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Add</h2>
+        <form method="post">
+            {% csrf_token %} Supplier ID: <input type="number" name="sup_id" required><br><br> Supplier Name: <input type="text" name="sup_name" maxlength="20" required><br><br> Contact Number: <input type="text" name="contact_no" required><br><br> Email:
+            <input type="email" name="sup_email" maxlength="30" required><br><br> Address: <input type="text" name="sup_address" maxlength="100" required><br><br>
+            <button type="submit" href="/supplierlist/" onclick="add()">Create</button>
+        </form>
+        <br>
+        <a href="/supplierlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

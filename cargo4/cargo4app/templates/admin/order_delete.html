@@ -1,0 +1,27 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Order</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Delete </h1>
+        <p>Are you sure you want to delete Order from id {{ order.order_id }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/orderlist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/orderlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Delete Price</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Delete </h2>
+        <p>Are you sure you want to delete price ID {{ price.price_id }}?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/pricelist/" onclick="remove()">Confirm Delete</button>
+        </form>
+        <a href="/pricelist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

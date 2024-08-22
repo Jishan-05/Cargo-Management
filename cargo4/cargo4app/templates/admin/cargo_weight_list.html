@@ -1,0 +1,45 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CargoWeights Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>CargoWeights Table</h1>
+        <a href="/cargoweightcreate/">Add </a>
+
+        <table border="1">
+            <tr>
+                <th>Weight ID</th>
+                <th>Weight</th>
+                <th>Measurement Unit</th>
+                <th>Cargo ID</th>
+                <th>Product ID</th>
+                <th>Actions</th>
+            </tr>
+            {% for cargo_weight in cargo_weights %}
+            <tr>
+                <td>{{ cargo_weight.weight_id }}</td>
+                <td>{{ cargo_weight.weight }}</td>
+                <td>{{ cargo_weight.measurement_unit }}</td>
+                <td>{{ cargo_weight.cargo_id }}</td>
+                <td>{{ cargo_weight.product_id }}</td>
+                <td>
+                    <a href="/cargoweightupdate/{{cargo_weight.weight_id}}/">Edit</a>
+                    <a href="/cargoweightdelete/{{cargo_weight.weight_id}}/">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

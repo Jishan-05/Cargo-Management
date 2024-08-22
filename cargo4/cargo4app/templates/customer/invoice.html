@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .container {
+            width: 80%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: #f9f9f9;
+        }
+        
+        .company-details {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .company-details h1 {
+            margin: 0;
+            color: #0056b3;
+        }
+        
+        .company-details p {
+            margin: 5px 0;
+        }
+        
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 10px;
+        }
+        
+        .invoice-header h2 {
+            margin: 0;
+        }
+        
+        .invoice-details,
+        .invoice-summary {
+            margin-bottom: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            color: #0056b3;
+        }
+        
+        .invoice-summary td {
+            font-weight: bold;
+        }
+        
+        .invoice-summary tr:last-child td {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="company-details">
+            <h1>Shubh Laxmi Cargo Movers</h1>
+            <h6>All India Part Load & Full Load Service</h6>
+            <p>34, Om Shanti nagar-2, </p>
+            <p>Narol-Vatva Road, Ahmedabad-382405</p>
+
+        </div>
+
+        <div class="invoice-header">
+            <h2>Invoice</h2>
+            <p><strong>Booking ID:</strong> {{ booking.book_id }}</p>
+            <!-- <p><strong>Date:</strong> {{ booking.created_at }}</p> -->
+        </div>
+
+        <div class="invoice-details">
+            <h3>Booking Details</h3>
+            <table>
+                <!-- <tr>
+                    <th>First Name</th>
+                    <td>{{ booking.name }}</td>
+                </tr>
+                <tr>
+                    <th>Last Name</th>
+                    <td>{{ booking.lname }}</td>
+                </tr> -->
+                <!-- <tr>
+                    <th>Mobile</th>
+                    <td>{{ booking.mobile }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ booking.email }}</td>
+                </tr> -->
+                <tr>
+                    <th>Pickup Address</th>
+                    <td>{{ booking.pick_address }}</td>
+                </tr>
+                <tr>
+                    <th>Delivery Address</th>
+                    <td>{{ booking.deliver_address }}</td>
+                </tr>
+                <!-- <tr>
+                    <th>Product Details</th>
+                    <td>{{ booking.product_detail }}</td>
+                </tr> -->
+                <tr>
+                    <th>Payment Type</th>
+                    <td>{{ booking.pay_type }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="invoice-summary">
+            <h3>Summary</h3>
+            <table>
+                <tr>
+                    <th>Order Date</th>
+                    <td>{{ order.order_date }}</td>
+                </tr>
+                <tr>
+                    <th>Price Weight</th>
+                    <td>{{ price.price_weight }}</td>
+                </tr>
+                <tr>
+                    <th>Price Distance</th>
+                    <td>{{ price.price_distance }}</td>
+                </tr>
+                <tr>
+                    <th>Total Price</th>
+                    <td>{{ price.total_price }}</td>
+                </tr>
+
+                <tr>
+                    <th>Payment Status</th>
+                    <td>NOT PAID</td>
+                </tr>
+            </table>
+        </div>
+        <center>
+            <button id="printBtn" class="btn btn-success m-2">Print Invoice</button>
+        </center>
+    </div>
+    <script>
+        document.getElementById('printBtn').addEventListener('click', function() {
+            window.print();
+        });
+    </script>
+</body>
+
+</html>

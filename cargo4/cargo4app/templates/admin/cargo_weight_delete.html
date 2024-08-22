@@ -1,0 +1,25 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Cargo Weigth</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Are you sure you want to delete Cargo Weigth ID {{ cargo_weight.weight_id }}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/cargoweightlist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/cargoweightlist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

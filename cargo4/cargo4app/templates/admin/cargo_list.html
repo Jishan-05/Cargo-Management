@@ -1,0 +1,51 @@
+ {% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cargo Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+
+    {% block content %}
+    <center>
+        <h1>Cargo Table</h1>
+        <a href="/cargocreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Cargo ID</th>
+                    <th>Customer ID</th>
+                    <th>Product ID</th>
+                    <th>Employee ID</th>
+                    <th>Weight</th>
+                    <th>Bill No</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cargo in cargos %}
+                <tr>
+                    <td>{{ cargo.cargo_id }}</td>
+                    <td>{{ cargo.cust_id }}</td>
+                    <td>{{ cargo.product_id }}</td>
+                    <td>{{ cargo.emp_id }}</td>
+                    <td>{{ cargo.weight }}</td>
+                    <td>{{ cargo.bill_no }}</td>
+                    <td>
+                        <a href="/cargoupdate/{{cargo.cargo_id}}/">Edit</a>
+                        <a href="/cargodelete/{{cargo.cargo_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

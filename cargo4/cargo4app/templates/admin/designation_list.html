@@ -1,0 +1,43 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Designation Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Designation Table</h1>
+        <a href="/designationcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Designation ID</th>
+                    <th>Designation</th>
+                    <th>Qualification</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for designation in designations %}
+                <tr>
+                    <td>{{ designation.designation_id }}</td>
+                    <td>{{ designation.designation }}</td>
+                    <td>{{ designation.qualification }}</td>
+                    <td>
+                        <a href="/designationupdate/{{designation.designation_id}}/">Edit</a>
+                        <a href="/designationdelete/{{designation.designation_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

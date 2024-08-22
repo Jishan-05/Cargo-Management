@@ -1,0 +1,37 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Invoice</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="invoice_id">Invoice ID:</label>
+            <input type="number" name="invoice_id" required><br>
+
+            <label for="order_id">Order ID:</label>
+            <input type="number" name="order_id" required><br>
+
+            <label for="due_date">Due Date:</label>
+            <input type="date" name="due_date" required><br>
+
+            <label for="total_ammount">Price ID:</label>
+            <input type="number" name="price_id" required><br>
+
+            <button type="submit" href="/invoicelist/" onclick="update()">Update</button>
+        </form>
+        <a href="/invoicelist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

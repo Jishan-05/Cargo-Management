@@ -1,0 +1,45 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Invoice Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Invoice Table</h1>
+        <a href="/invoicecreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Invoice ID</th>
+                    <th>Order ID</th>
+                    <th>Due Date</th>
+                    <th>Price ID</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for invoice in invoices %}
+                <tr>
+                    <td>{{ invoice.invoice_id }}</td>
+                    <td>{{ invoice.order_id }}</td>
+                    <td>{{ invoice.due_date }}</td>
+                    <td>{{ invoice.price_id }}</td>
+                    <td>
+                        <a href="/invoiceupdate/{{ invoice.invoice_id }}/">Edit</a>
+                        <a href="/invoicedelete/{{ invoice.invoice_id }}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

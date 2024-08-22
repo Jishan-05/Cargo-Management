@@ -1,0 +1,27 @@
+/* Add hover effect */
+
+.nav-link {
+    color: #000000;
+    /* Default color */
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffffff;
+    /* Text color on hover */
+    background-color: rgba(0, 137, 249, 0.637);
+    /* Background color on hover */
+    border-radius: 5px;
+    /* Optional: rounded corners */
+}
+
+
+/* Add active click effect */
+
+.nav-link:active {
+    color: #ffffff;
+    /* Text color on click */
+    background-color: #1ec9b2;
+    /* Background color on click */
+    border-radius: 5px;
+}

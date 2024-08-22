@@ -1,0 +1,71 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Employee</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <label for="emp_id">Employee ID:</label>
+            <input type="text" id="emp_id" name="emp_id" required><br>
+
+            <label for="emp_firstname">First Name:</label>
+            <input type="text" name="emp_firstname" required><br>
+
+            <label for="emp_lastname">Last Name:</label>
+            <input type="text" name="emp_lastname" required><br>
+
+            <label for="emp_password">Password:</label>
+            <input type="password" name="emp_password" required><br>
+
+            <label for="designation_id">Designation ID:</label>
+            <input type="number" name="designation_id" required><br>
+
+            <label for="experience">Experience:</label>
+            <input type="text" name="experience" required><br>
+
+            <label for="emp_salary">Salary:</label>
+            <input type="number" name="emp_salary" required><br>
+
+            <label for="gender">Gender:</label>
+            <input type="text" name="gender" required><br>
+
+            <label for="emp_dob">Date of Birth:</label>
+            <input type="date" name="emp_dob" required><br>
+
+            <label for="emp_doj">Date of Joining:</label>
+            <input type="date" name="emp_doj" required><br>
+
+            <label for="emp_contact_no">Contact No:</label>
+            <input type="number" name="emp_contact_no" required><br>
+
+            <label for="emp_email">Email:</label>
+            <input type="email" name="emp_email" required><br>
+
+            <label for="emp_address">Address:</label>
+            <input type="text" name="emp_address" required><br>
+
+            <label for="working_days">Working Days:</label>
+            <input type="text" name="working_days" required><br>
+
+            <label for="leave_days">Leave Days:</label>
+            <input type="text" name="leave_days" required><br>
+
+            <button type="submit" href="/employeelist/" onclick="update()">Update</button>
+        </form>
+        <a href="/employeelist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

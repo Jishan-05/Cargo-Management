@@ -1,0 +1,43 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create </title>
+    <script src="/static/js/create.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Add</h1>
+        <form method="post">
+            {% csrf_token %}
+            <!-- <label for="truckid">Truck ID:</label>
+            <input type="number" id="truckid" name="truckid"><br> -->
+
+            <label for="trucktype">Truck Type:</label>
+            <input type="text" id="trucktype" name="trucktype"><br>
+
+            <label for="lengthft">Length (ft):</label>
+            <input type="number" id="lengthft" name="lengthft"><br>
+
+            <label for="widthft">Width (ft):</label>
+            <input type="number" step="0.1" id="widthft" name="widthft"><br>
+
+            <label for="heightft">Height (ft):</label>
+            <input type="number" step="0.1" id="heightft" name="heightft"><br>
+
+            <label for="maxloadtons">Max Load (tons):</label>
+            <input type="number" step="0.01" id="maxloadtons" name="maxloadtons"><br>
+
+            <button type="submit" onclick="add()">Create</button>
+        </form>
+        <br>
+        <a href="/trucklist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Create </title>
+    <script src="/static/js/create.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Add</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone"><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea><br>
+
+            <button type="submit" onclick="add()">Create</button>
+        </form>
+        <br>
+        <a href="/inquirylist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

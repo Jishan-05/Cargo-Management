@@ -1,0 +1,26 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Warehouse</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post" action="/warehouselist/">
+            {% csrf_token %} Warehouse ID: <input type="text" name="warehouse_id" required><br> Warehouse Address: <input type="text" name="warehouse_address" required><br> Capacity: <input type="text" name="capacity" required><br> Employee ID:
+            <input type="text" name="emp_id" required><br>
+            <button type="submit" href="/warehouselist/" onclick="update()">Update</button>
+        </form>
+        <a href="/warehouselist/">Back </a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

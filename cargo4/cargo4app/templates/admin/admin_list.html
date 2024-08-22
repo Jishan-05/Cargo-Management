@@ -1,0 +1,47 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+
+</head>
+
+<body>
+    {% block content %}
+    <center>
+
+        <h1>Admin Table</h1>
+        <a href="/createadmin/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Admin ID</th>
+                    <th>Admin Name</th>
+                    <th>Admin Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for admin in admins %}
+                <tr>
+                    <td>{{ admin.admin_id }}</td>
+                    <td>{{ admin.admin_name }}</td>
+                    <td>{{ admin.admin_pass }}</td>
+                    <td>
+                        <a href="/updateadmin/{{ admin.admin_id }}/">Edit</a>
+                        <a href="/deleteadmin/{{ admin.admin_id }}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

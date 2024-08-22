@@ -1,0 +1,26 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/deletestyles.css">
+    <script src="/static/js/delete.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Are you sure you want to delete {{ admin.admin_name }}?</h1>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" href="/adminlist/" onclick="remove()">Confirm</button>
+        </form>
+        <a href="/adminlist/">Back</a>
+    </center>
+    {% endblock %}
+
+</body>
+
+</html>

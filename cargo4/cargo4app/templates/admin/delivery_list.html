@@ -1,0 +1,50 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Delivery Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Delivery Table</h1>
+        <a href="/createdelivery/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Delivery ID</th>
+                    <th>Cargo ID</th>
+                    <th>Pickup Date</th>
+                    <th>Delivery Date</th>
+                    <th>Pickup Address</th>
+                    <th>Destination Address</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for delivery in deliveries %}
+                <tr>
+                    <td>{{ delivery.delivery_id }}</td>
+                    <td>{{ delivery.cargo_id }}</td>
+                    <td>{{ delivery.pickup_date }}</td>
+                    <td>{{ delivery.delivery_date }}</td>
+                    <td>{{ delivery.pickup_address }}</td>
+                    <td>{{ delivery.destination_address }}</td>
+                    <td>
+                        <a href="/updatedelivery/{{delivery.delivery_id}}/">Edit</a>
+                        <a href="/deletedelivery/{{delivery.delivery_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

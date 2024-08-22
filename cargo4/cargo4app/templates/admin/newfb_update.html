@@ -1,0 +1,34 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Feedback</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Edit</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ feedback.name }}" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ feedback.email }}" required><br>
+
+            <label for="custfeedback">Feedback:</label>
+            <textarea id="custfeedback" name="custfeedback" required>{{ feedback.custfeedback }}</textarea><br>
+
+            <button type="submit" href="/feedbacklist/" onclick="update()">Update</button>
+        </form>
+        <a href="/fblist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Truck Table</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Truck Table</h2>
+        <a href="/truckcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Truck_id</th>
+                    <th>Truck Type</th>
+                    <th>Length feet</th>
+                    <th>Width feet</th>
+                    <th>Maximum Loads</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for truck in trucks %}
+                <tr>
+                    <td>{{ truck.truckid}}</td>
+                    <td>{{ truck.trucktype }}</td>
+                    <td>{{ truck.lengthft }}</td>
+                    <td>{{ truck.widthft }}</td>
+                    <td>{{ truck.maxloadtons }}</td>
+                    <td>
+                        <a href="/truckupdate/{{ truck.truckid }}/">Edit</a>
+                        <a href="/truckdelete/{{ truck.truckid }}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <ul>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

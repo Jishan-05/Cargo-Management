@@ -1,0 +1,54 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Table</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Payment Table</h1>
+        <a href="/paymentcreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Payment ID</th>
+                    <th>Payment Date</th>
+                    <th>Price ID</th>
+                    <th>Order ID</th>
+                    <th>Customer ID</th>
+                    <th>Payment Method</th>
+                    <th>Payment Amount</th>
+                    <th>Payment Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for payment in payments %}
+                <tr>
+                    <td>{{ payment.pay_id }}</td>
+                    <td>{{ payment.pay_date }}</td>
+                    <td>{{ payment.price_id }}</td>
+                    <td>{{ payment.order_id }}</td>
+                    <td>{{ payment.cust_id }}</td>
+                    <td>{{ payment.pay_method }}</td>
+                    <td>{{ payment.pay_amount }}</td>
+                    <td>{{ payment.pay_status }}</td>
+                    <td>
+                        <a href="/paymentupdate/{{payment.pay_id}}/">Edit</a>
+                        <a href="/paymentdelete/{{payment.pay_id}}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

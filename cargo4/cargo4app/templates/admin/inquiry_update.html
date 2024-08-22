@@ -1,0 +1,36 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Update Truck</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/createstyles2.css">
+    <script src="/static/js/update.js"></script>
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h1>Update </h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{ inquiry.name }}" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ inquiry.email }}" required><br>
+
+            <label for="phone">Phone (optional):</label>
+            <input type="text" id="phone" name="phone" value="{{ inquiry.phone }}"><br>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required>{{ inquiry.message }}</textarea><br>
+            <button type="submit" onclick="update()">Update</button>
+        </form>
+        <br>
+        <a href="/trucklist/">Back</a>
+    </center>
+    {% endblock %}
+</body>
+
+</html>

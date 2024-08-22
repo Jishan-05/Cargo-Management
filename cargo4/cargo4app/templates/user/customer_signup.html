@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            /* Light sky blue background for the page */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        h2 {
+            color: #4682b4;
+            /* Steel blue for the header */
+        }
+        
+        form {
+            background-color: #e0ffff;
+            /* Light cyan for the form background */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        
+        input {
+            display: block;
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #b0e0e6;
+            /* Powder blue border */
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        input:focus {
+            border-color: #4682b4;
+            /* Steel blue border on focus */
+            outline: none;
+        }
+        
+        button {
+            background-color: #87ceeb;
+            /* Sky blue button */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        button:hover {
+            background-color: #00bfff;
+            /* Deep sky blue on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <form id="customerSignupForm" method="post">
+        <center>
+            <h2>Sign Up</h2>
+        </center>
+        {% csrf_token %}
+        <input type="text" name="firstname" placeholder="First Name" required>
+        <input type="text" name="lastname" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="number" name="contact" placeholder="contact" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <script>
+        document.getElementById('customerSignupForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var firstname = document.getElementsByName('firstname')[0].value;
+            var lastname = document.getElementsByName('lastname')[0].value;
+            var email = document.getElementsByName('email')[0].value;
+            var contact = document.getElementsByName('contact')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+            var confirmPassword = document.getElementsByName('confirm_password')[0].value;
+
+            if (firstname.length < 2 || lastname.length < 2) {
+                alert('First name and last name must be at least 2 characters long.');
+                return;
+            }
+
+            if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+
+            this.submit();
+        });
+    </script>
+</body>
+
+</html>

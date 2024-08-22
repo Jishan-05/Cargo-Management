@@ -1,0 +1,46 @@
+{% extends 'admin/dsbrd.html' %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Inquiry Table</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/adminstyles.css">
+</head>
+
+<body>
+    {% block content %}
+    <center>
+        <h2>Inquiry Table</h2>
+        <a href="/inquirycreate/">Add</a>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Inquiry_id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Message</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for inquiry in inquiries %}
+                <tr>
+                    <td>{{ inquiry.inq_id}}</td>
+                    <td>{{ inquiry.name }}</td>
+                    <td>{{ inquiry.email }}</td>
+                    <td>{{ inquiry.phone }}</td>
+                    <td>{{ inquiry.message }}</td>
+                    <td>
+                        <a href="/inquiryupdate/{{ inquiry.inq_id }}/">Edit</a>
+                        <a href="/inquirydelete/{{ inquiry.inq_id }}/">Delete</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <ul>
+    </center>
+    {% endblock %}
+</body>
+
+</html>
